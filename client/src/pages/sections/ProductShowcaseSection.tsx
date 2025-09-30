@@ -2,48 +2,7 @@ import { ArrowRightIcon } from "lucide-react";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-
-const newsArticles = [
-  {
-    title: "Product Mail is taking on Gmail by betting on privacy",
-    description:
-      "Ramet consectetur. Est porttitor mattis pharetra sit id viverra. Vivamus mauris augue pharetra cras turpis faucibus elit urna.",
-    date: "February 8, 2023",
-    previewImage: {
-      iconSrc: "/figmaAssets/icon-1.png",
-      frameSrc: "/figmaAssets/frame-39.svg",
-      ellipseSrc: "/figmaAssets/ellipse-23.png",
-      lineSrc: "/figmaAssets/line-30.svg",
-      activitySrc: "/figmaAssets/activity.svg",
-    },
-  },
-  {
-    title: "Wants You To Sign Out Of Google Workspace Forever",
-    description:
-      "Est porttitor mattis pharetra sit id viverra. Vivamus mauris augue pharetra cras turpis faucibus elit urna.",
-    date: "February 8, 2023",
-    previewImage: {
-      iconSrc: "/figmaAssets/group-64.png",
-      lineSrc: "/figmaAssets/line-31.svg",
-      chartSrc: "/figmaAssets/chart.svg",
-      groupSrc: "/figmaAssets/group-65.png",
-    },
-  },
-  {
-    title: "The Best Email Encryption Services for 2023",
-    description:
-      "Dorttitor mattis pharetra sit id viverra. Vivamus mauris augue pharetra cras turpis faucibus elit urna.",
-    date: "February 8, 2023",
-    previewImage: {
-      iconSrc: "/figmaAssets/group-64-1.png",
-      ellipse26Src: "/figmaAssets/ellipse-26.svg",
-      ellipse27Src: "/figmaAssets/ellipse-27.svg",
-      ellipse28Src: "/figmaAssets/ellipse-28.svg",
-      groupSrc: "/figmaAssets/group-76.png",
-      timeCircleSrc: "/figmaAssets/time-circle.svg",
-    },
-  },
-];
+import { landingPageContent } from "@/config/landingPageContent";
 
 export const ProductShowcaseSection = (): JSX.Element => {
   return (
@@ -51,16 +10,19 @@ export const ProductShowcaseSection = (): JSX.Element => {
       <div className="flex flex-col w-full max-w-[1224px] items-center justify-center gap-[60px] relative">
         <header className="flex w-full justify-between items-center relative">
           <h2 className="relative w-fit mt-[-1.00px] bg-[linear-gradient(180deg,rgba(246,246,247,1)_0%,rgba(126,128,143,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] font-heading-h2 font-[number:var(--heading-h2-font-weight)] text-transparent text-[length:var(--heading-h2-font-size)] tracking-[var(--heading-h2-letter-spacing)] leading-[var(--heading-h2-line-height)] whitespace-nowrap [font-style:var(--heading-h2-font-style)]">
-            Product in the news
+            {landingPageContent.productShowcase.heading}
           </h2>
 
-          <Button className="inline-flex items-center justify-center gap-2.5 px-[25px] py-[15px] relative bg-primaryblue-violet rounded-[36px] h-auto font-button-RG font-[number:var(--button-RG-font-weight)] text-white text-[length:var(--button-RG-font-size)] tracking-[var(--button-RG-letter-spacing)] leading-[var(--button-RG-line-height)] [font-style:var(--button-RG-font-style)] hover:bg-primaryblue-violet/90">
-            Browse all news
+          <Button
+            aria-label={landingPageContent.productShowcase.browseAllNewsText}
+            className="inline-flex items-center justify-center gap-2.5 px-[25px] py-[15px] relative bg-primaryblue-violet rounded-[36px] h-auto font-button-RG font-[number:var(--button-RG-font-weight)] text-white text-[length:var(--button-RG-font-size)] tracking-[var(--button-RG-letter-spacing)] leading-[var(--button-RG-line-height)] [font-style:var(--button-RG-font-style)] hover:bg-primaryblue-violet/90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primaryblue-violet"
+          >
+            {landingPageContent.productShowcase.browseAllNewsText}
           </Button>
         </header>
 
         <div className="flex items-start gap-6 w-full">
-          {newsArticles.map((article, index) => (
+          {landingPageContent.productShowcase.newsArticles.map((article, index) => (
             <Card
               key={index}
               className="inline-flex flex-col items-start gap-[19px] p-[25px] relative flex-1 bg-neutralgray-800 rounded-[10px] border border-solid border-[#282d45]"
@@ -71,7 +33,8 @@ export const ProductShowcaseSection = (): JSX.Element => {
                     <>
                       <img
                         className="absolute top-[23px] left-[210px] w-11 h-11"
-                        alt="Icon"
+                        alt=""
+                        aria-hidden="true"
                         src={article.previewImage.iconSrc}
                       />
 
@@ -290,12 +253,13 @@ export const ProductShowcaseSection = (): JSX.Element => {
 
                     <Button
                       variant="ghost"
-                      className="inline-flex items-center justify-center gap-0.5 relative p-0 h-auto bg-transparent hover:bg-transparent"
+                      aria-label={`Read more about ${article.title}`}
+                      className="inline-flex items-center justify-center gap-0.5 relative p-0 h-auto bg-transparent hover:bg-transparent focus:outline-none focus:ring-2 focus:ring-primaryblue-violet focus:ring-offset-2 focus:ring-offset-neutralgray-800"
                     >
                       <span className="relative w-fit font-button-RG font-[number:var(--button-RG-font-weight)] text-neutralwhite text-[length:var(--button-RG-font-size)] tracking-[var(--button-RG-letter-spacing)] leading-[var(--button-RG-line-height)] whitespace-nowrap [font-style:var(--button-RG-font-style)]">
                         Read more
                       </span>
-                      <ArrowRightIcon className="relative w-6 h-6" />
+                      <ArrowRightIcon className="relative w-6 h-6" aria-hidden="true" />
                     </Button>
                   </div>
                 </div>

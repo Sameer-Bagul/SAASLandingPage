@@ -6,6 +6,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      spacing: {
+        '18': '4.5rem',
+        '22': '5.5rem',
+        '30': '7.5rem',
+        '70': '17.5rem',
+      },
+      screens: {
+        'xs': '475px',
+        '3xl': '1600px',
+      },
       colors: {
         errorred: "var(--errorred)",
         "neutralblack-1000": "var(--neutralblack-1000)",
@@ -19,11 +29,15 @@ module.exports = {
         "primaryblue-violet": "var(--primaryblue-violet)",
         "secondarymedium-orchid": "var(--secondarymedium-orchid)",
         "secondaryneon-blue": "var(--secondaryneon-blue)",
-        "secondaryradical-red": "var(--secondaryradical-red)",
+        // "secondaryradical-red": "var(--secondaryradical-red)",
         "secondaryspicy-pink": "var(--secondaryspicy-pink)",
         "secondarysummer-sky": "var(--secondarysummer-sky)",
         successgreen: "var(--successgreen)",
         warningyellow: "var(--warningyellow)",
+        // Additional design system colors
+        "brand-dark": "#060b27",
+        "border-primary": "#282d45",
+        "text-secondary": "#8f9bb7",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -102,7 +116,7 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
-    container: { center: true, padding: "2rem", screens: { "2xl": "1400px" } },
+    container: { center: true, padding: { DEFAULT: "1rem", sm: "2rem", lg: "4rem" }, screens: { "2xl": "1400px" } },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
   darkMode: ["class"],

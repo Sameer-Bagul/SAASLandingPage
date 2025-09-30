@@ -1,64 +1,20 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { landingPageContent } from "@/config/landingPageContent";
 
 export const ContentWrapperSection = (): JSX.Element => {
-  const appTypes = [
-    {
-      icon: "/figmaAssets/icon-4.svg",
-      width: "w-[42.67px]",
-      height: "h-[30px]",
-      label: "Email,",
-    },
-    {
-      icon: "/figmaAssets/icon-9.svg",
-      width: "w-[31.28px]",
-      height: "h-[30px]",
-      label: "Events,",
-    },
-    {
-      icon: "/figmaAssets/icon-6.svg",
-      width: "w-[37.94px]",
-      height: "h-[30px]",
-      label: "Files,",
-    },
-    {
-      icon: "/figmaAssets/icon-3.svg",
-      width: "w-[22.85px]",
-      height: "h-[30px]",
-      label: "Documents",
-    },
-  ];
-
-  const emailMessages = [
-    {
-      avatar: "/figmaAssets/rectangle-17.png",
-      name: "R. Baynham",
-      email: "tranthuy.nute@gmail.com",
-      date: "Feb 8, 2023",
-      content:
-        "Lorem ipsum dolor sit amet consectetur. Non eget facilisis justo euismod ante mauris orci cursus.",
-    },
-    {
-      avatar: "/figmaAssets/rectangle-17-1.png",
-      name: "Cooper Kristin",
-      email: "tranthuy.nute@gmail.com",
-      date: "Feb 8, 2023",
-      content:
-        "Lorem ipsum dolor sit amet consectetur. Non eget facilisis justo euismod ante mauris orci cursus.",
-    },
-  ];
 
   return (
     <section className="flex flex-col w-full items-center px-0 py-[70px] relative">
       <div className="flex flex-col w-full max-w-[1224px] items-center justify-center gap-[60px] relative">
         <header className="inline-flex flex-col gap-5 items-center relative">
           <h1 className="relative w-[771px] mt-[-1.00px] bg-[linear-gradient(180deg,rgba(246,246,247,1)_0%,rgba(126,128,143,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] font-heading-h2 font-[number:var(--heading-h2-font-weight)] text-transparent text-[length:var(--heading-h2-font-size)] text-center tracking-[var(--heading-h2-letter-spacing)] leading-[var(--heading-h2-line-height)] [font-style:var(--heading-h2-font-style)]">
-            Essential apps that protect your
+            {landingPageContent.contentWrapper.heading}
           </h1>
 
           <div className="inline-flex items-start gap-[30px] relative">
-            {appTypes.map((app, index) => (
+            {landingPageContent.contentWrapper.appTypes.map((app, index) => (
               <div
                 key={index}
                 className="inline-flex items-center gap-3 relative"
@@ -87,19 +43,17 @@ export const ContentWrapperSection = (): JSX.Element => {
             <CardContent className="flex w-[465px] items-start gap-[35px] flex-col relative p-0">
               <div className="self-stretch w-full flex flex-col items-start gap-[15px] relative">
                 <h2 className="relative self-stretch mt-[-1.00px] font-heading-h5 font-[number:var(--heading-h5-font-weight)] text-neutralwhite-200 text-[length:var(--heading-h5-font-size)] tracking-[var(--heading-h5-letter-spacing)] leading-[var(--heading-h5-line-height)] [font-style:var(--heading-h5-font-style)]">
-                  End-to-end encrypted inbox and messages
+                  {landingPageContent.contentWrapper.encryptedInboxHeading}
                 </h2>
 
                 <p className="relative self-stretch font-paragraph-RG font-[number:var(--paragraph-RG-font-weight)] text-neutralgray-300 text-[length:var(--paragraph-RG-font-size)] tracking-[var(--paragraph-RG-letter-spacing)] leading-[var(--paragraph-RG-line-height)] [font-style:var(--paragraph-RG-font-style)]">
-                  Rorem ipsum dolor sit amet consectetur. Proin dignissim tortor
-                  mauris viverra sed volutpat mauris. Amet nisi amet commodo
-                  adipiscing ut imperdiet nunc.
+                  {landingPageContent.contentWrapper.encryptedInboxDescription}
                 </p>
               </div>
 
               <Button className="inline-flex items-center justify-center gap-2.5 px-[25px] py-[15px] relative rounded-[46px] border-[1.2px] border-solid border-[#282d45] bg-[linear-gradient(216deg,rgba(21,25,52,0.52)_0%,rgba(21,25,52,0.08)_48%,rgba(21,25,52,0.49)_100%)] h-auto">
                 <span className="relative w-fit mt-[-1.20px] font-button-RG font-[number:var(--button-RG-font-weight)] text-neutralwhite-200 text-[length:var(--button-RG-font-size)] tracking-[var(--button-RG-letter-spacing)] leading-[var(--button-RG-line-height)] whitespace-nowrap [font-style:var(--button-RG-font-style)]">
-                  Learn More
+                  {landingPageContent.contentWrapper.learnMoreText}
                 </span>
               </Button>
             </CardContent>
@@ -117,7 +71,7 @@ export const ContentWrapperSection = (): JSX.Element => {
                     Invitation to present at Bsides
                   </h3>
 
-                  {emailMessages.map((message, index) => (
+                  {landingPageContent.contentWrapper.emailMessages.map((message, index) => (
                     <Card
                       key={index}
                       className={`inline-flex ml-[1.0px] w-[469px] h-[118px] relative ${index === 0 ? "mt-3.5" : "mt-[15px]"} flex-col items-start gap-[13px] p-[15px] bg-neutralgray-600 rounded border border-solid border-[#282d45]`}
@@ -181,13 +135,11 @@ export const ContentWrapperSection = (): JSX.Element => {
 
                 <div className="flex w-[386px] items-start gap-[15px] flex-col relative">
                   <h3 className="self-stretch relative mt-[-1.00px] font-heading-h5 font-[number:var(--heading-h5-font-weight)] text-neutralwhite-200 text-[length:var(--heading-h5-font-size)] tracking-[var(--heading-h5-letter-spacing)] leading-[var(--heading-h5-line-height)] [font-style:var(--heading-h5-font-style)]">
-                    Mobile applications
+                    {landingPageContent.contentWrapper.mobileAppsHeading}
                   </h3>
 
                   <p className="relative self-stretch font-paragraph-RG font-[number:var(--paragraph-RG-font-weight)] text-neutralgray-300 text-[length:var(--paragraph-RG-font-size)] tracking-[var(--paragraph-RG-letter-spacing)] leading-[var(--paragraph-RG-line-height)] [font-style:var(--paragraph-RG-font-style)]">
-                    Prem ipsum dolor sit amet consectetur. Viverra sed dignissim
-                    risus aliquet condimentum. Vulputate varius feugiat egestas
-                    congue
+                    {landingPageContent.contentWrapper.mobileAppsDescription}
                   </p>
                 </div>
               </CardContent>
@@ -209,12 +161,11 @@ export const ContentWrapperSection = (): JSX.Element => {
               <CardContent className="flex flex-col items-center gap-[30px] p-0">
                 <div className="flex w-[578px] items-start gap-[15px] flex-col relative">
                   <h3 className="w-[562px] relative mt-[-1.00px] font-heading-h5 font-[number:var(--heading-h5-font-weight)] text-neutralwhite-200 text-[length:var(--heading-h5-font-size)] tracking-[var(--heading-h5-letter-spacing)] leading-[var(--heading-h5-line-height)] [font-style:var(--heading-h5-font-style)]">
-                    Upload, share, and preview any file
+                    {landingPageContent.contentWrapper.uploadShareHeading}
                   </h3>
 
                   <p className="relative self-stretch font-paragraph-RG font-[number:var(--paragraph-RG-font-weight)] text-neutralgray-300 text-[length:var(--paragraph-RG-font-size)] tracking-[var(--paragraph-RG-letter-spacing)] leading-[var(--paragraph-RG-line-height)] [font-style:var(--paragraph-RG-font-style)]">
-                    Tellus et adipiscing sit sit mauris pharetra bibendum.
-                    Ligula massa netus nulla ultricies purus.
+                    {landingPageContent.contentWrapper.uploadShareDescription}
                   </p>
                 </div>
 
@@ -277,13 +228,13 @@ export const ContentWrapperSection = (): JSX.Element => {
         <div className="inline-flex items-start gap-[30px] relative">
           <Button className="inline-flex items-center justify-center gap-2.5 px-[25px] py-[15px] relative bg-primaryblue-violet rounded-[36px] h-auto">
             <span className="relative w-fit mt-[-1.00px] font-button-RG font-[number:var(--button-RG-font-weight)] text-white text-[length:var(--button-RG-font-size)] tracking-[var(--button-RG-letter-spacing)] leading-[var(--button-RG-line-height)] whitespace-nowrap [font-style:var(--button-RG-font-style)]">
-              Get a Started
+              {landingPageContent.contentWrapper.getStartedText}
             </span>
           </Button>
 
           <Button className="inline-flex items-center justify-center gap-2.5 px-[25px] py-[15px] relative rounded-[46px] border-[1.2px] border-solid border-[#282d45] bg-[linear-gradient(216deg,rgba(21,25,52,0.52)_0%,rgba(21,25,52,0.08)_48%,rgba(21,25,52,0.49)_100%)] h-auto">
             <span className="relative w-fit mt-[-1.20px] font-button-RG font-[number:var(--button-RG-font-weight)] text-neutralwhite-200 text-[length:var(--button-RG-font-size)] tracking-[var(--button-RG-letter-spacing)] leading-[var(--button-RG-line-height)] whitespace-nowrap [font-style:var(--button-RG-font-style)]">
-              Browse all feature
+              {landingPageContent.contentWrapper.browseAllFeatureText}
             </span>
           </Button>
         </div>

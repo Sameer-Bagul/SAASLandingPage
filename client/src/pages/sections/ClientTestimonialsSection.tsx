@@ -1,16 +1,15 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { landingPageContent } from "@/config/landingPageContent";
 
 export const ClientTestimonialsSection = (): JSX.Element => {
   const codeSnippets = [
     {
-      content: `// recoverySigningPublicKey is the public key component of the keypair used
-// to sign SSS shards. Upon share re-combination, spliterati verifies attached
-// signatures of each shard to confirm that the shard is correct.`,
-      className: "absolute top-[233px] left-[98px]",
-      textColor: "text-[#4c8776]",
-      width: "w-[361px]",
+      content: landingPageContent.clientTestimonials.codeSnippets[0].content,
+      className: landingPageContent.clientTestimonials.codeSnippets[0].className,
+      textColor: landingPageContent.clientTestimonials.codeSnippets[0].textColor,
+      width: landingPageContent.clientTestimonials.codeSnippets[0].width,
     },
     {
       content: (
@@ -56,28 +55,13 @@ export const ClientTestimonialsSection = (): JSX.Element => {
           <span className="text-[#f6f6f7]">);</span>
         </>
       ),
-      className: "absolute top-[13px] left-[15px]",
-      textColor: "text-neutralwhite-200",
-      width: "w-fit",
+      className: landingPageContent.clientTestimonials.codeSnippets[1].className,
+      textColor: landingPageContent.clientTestimonials.codeSnippets[1].textColor,
+      width: landingPageContent.clientTestimonials.codeSnippets[1].width,
     },
   ];
 
-  const featureCards = [
-    {
-      title: "Product Mail",
-      description:
-        "Gonsectetur eque nec nunc facilisis tellus tincidunt. Malesuada maecenas ac bibendum consectetur.",
-      image: "/figmaAssets/mask-group-1.png",
-      isBackgroundImage: true,
-    },
-    {
-      title: "Product UI",
-      description:
-        "Honsectetur eque nec nunc facilisis tellus tincidunt. Malesuada maecenas ac bibendum consectetur.",
-      image: "/figmaAssets/image-wrapper-1.png",
-      isBackgroundImage: false,
-    },
-  ];
+  const featureCards = landingPageContent.clientTestimonials.featureCards;
 
   return (
     <section className="flex flex-col w-full items-center px-0 py-[70px] relative">
@@ -86,7 +70,8 @@ export const ClientTestimonialsSection = (): JSX.Element => {
           <CardContent className="p-0">
             <img
               className="absolute top-0 left-px w-[1222px] h-[903px]"
-              alt="Bg shape color"
+              alt=""
+              aria-hidden="true"
               src="/figmaAssets/bg--shape-color.png"
             />
 
@@ -98,14 +83,16 @@ export const ClientTestimonialsSection = (): JSX.Element => {
                   </h2>
 
                   <p className="relative self-stretch font-subtitle-RG font-[number:var(--subtitle-RG-font-weight)] text-neutralgray-300 text-[length:var(--subtitle-RG-font-size)] tracking-[var(--subtitle-RG-letter-spacing)] leading-[var(--subtitle-RG-line-height)] [font-style:var(--subtitle-RG-font-style)]">
-                    Torem ipsum dolor sit amet consectetur. Nulla quisque
-                    scelerisque eget quis. Eu amet amet eu interdum.
+                    {landingPageContent.clientTestimonials.description}
                   </p>
                 </div>
 
-                <Button className="inline-flex items-center justify-center gap-2.5 px-[25px] py-[15px] relative flex-[0_0_auto] rounded-[46px] border-[1.2px] border-solid border-[#282d45] bg-[linear-gradient(216deg,rgba(21,25,52,0.52)_0%,rgba(21,25,52,0.08)_48%,rgba(21,25,52,0.49)_100%)] h-auto">
+                <Button
+                  aria-label={landingPageContent.clientTestimonials.browseAllFeatureText}
+                  className="inline-flex items-center justify-center gap-2.5 px-[25px] py-[15px] relative flex-[0_0_auto] rounded-[46px] border-[1.2px] border-solid border-[#282d45] bg-[linear-gradient(216deg,rgba(21,25,52,0.52)_0%,rgba(21,25,52,0.08)_48%,rgba(21,25,52,0.49)_100%)] h-auto focus:outline-none focus:ring-2 focus:ring-primaryblue-violet focus:ring-offset-2 focus:ring-offset-neutralgray-800"
+                >
                   <span className="relative w-fit mt-[-1.20px] font-button-RG font-[number:var(--button-RG-font-weight)] text-neutralwhite-200 text-[length:var(--button-RG-font-size)] tracking-[var(--button-RG-letter-spacing)] leading-[var(--button-RG-line-height)] whitespace-nowrap [font-style:var(--button-RG-font-style)]">
-                    Browse all feature
+                    {landingPageContent.clientTestimonials.browseAllFeatureText}
                   </span>
                 </Button>
               </div>
@@ -152,7 +139,7 @@ export const ClientTestimonialsSection = (): JSX.Element => {
                     ) : (
                       <img
                         className="relative w-[487px] h-[211px]"
-                        alt="Image wrapper"
+                        alt={`${card.title} illustration`}
                         src={card.image}
                       />
                     )}
