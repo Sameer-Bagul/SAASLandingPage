@@ -9,7 +9,7 @@ import { PricingSection } from "./sections/PricingSection";
 
 export const SaasLandingPage = (): JSX.Element => {
   return (
-    <main className="bg-[#060b27] w-full flex flex-col">
+    <main className="bg-[#060b27] w-full flex flex-col pt-20">
       <NavigationBarSection />
       <OverviewSection />
       <MainContentSection />

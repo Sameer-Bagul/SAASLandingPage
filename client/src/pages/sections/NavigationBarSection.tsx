@@ -2,45 +2,64 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 
 const navigationItems = [
-  { label: "Home", isActive: true },
-  { label: "Features", isActive: false },
-  { label: "Pricing", isActive: false },
-  { label: "How It Works", isActive: false },
-  { label: "Contact", isActive: false },
+  { label: "Features", href: "#features" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "Testimonials", href: "#testimonials" },
+  { label: "About", href: "#about" },
 ];
 
 export const NavigationBarSection = (): JSX.Element => {
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <nav className="flex flex-col w-full items-center px-4 py-6 relative flex-[0_0_auto] border-b [border-bottom-style:solid] border-[#151934]">
-      <div className="flex w-full max-w-[1224px] items-center justify-between relative flex-[0_0_auto]">
-        <div className="flex items-center gap-2">
-          <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
-            Wyse Reports
-          </div>
+    <nav 
+      className={`fixed top-4 left-1/2 -translate-x-1/2 w-[min(96%,1200px)] z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'glass-card shadow-2xl' 
+          : 'glass-card'
+      }`}
+      style={{
+        borderRadius: '9999px',
+      }}
+    >
+      <div className="flex items-center justify-between px-6 py-3">
+        <div className="text-xl md:text-2xl font-bold bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">
+          Wyse Reports
         </div>
 
-        <div className="hidden md:inline-flex items-center justify-center gap-[15px] relative flex-[0_0_auto]">
+        <div className="hidden md:flex md:items-center md:gap-8">
           {navigationItems.map((item, index) => (
-            <div
+            <a
               key={index}
-              className="inline-flex items-center justify-center gap-2.5 p-2.5 relative flex-[0_0_auto] cursor-pointer hover:text-white transition-colors"
+              href={item.href}
+              className="relative font-button-RG text-sm font-[number:var(--button-RG-font-weight)] text-neutralwhite-200 hover:text-primaryblue-violet transition-colors"
             >
-              <div
-                className={`relative w-fit mt-[-1.00px] font-subtitle-RG font-[number:var(--subtitle-RG-font-weight)] text-[length:var(--subtitle-RG-font-size)] tracking-[var(--subtitle-RG-letter-spacing)] leading-[var(--subtitle-RG-line-height)] whitespace-nowrap [font-style:var(--subtitle-RG-font-style)] ${
-                  item.isActive ? "text-neutralwhite" : "text-neutralgray-300"
-                }`}
-              >
-                {item.label}
-              </div>
-            </div>
+              {item.label}
+            </a>
           ))}
         </div>
 
-        <Button className="inline-flex items-center justify-center gap-2.5 px-6 py-3 relative flex-[0_0_auto] bg-primaryblue-violet rounded-[36px] h-auto hover:bg-primaryblue-violet/90">
-          <div className="relative w-fit font-button-RG font-[number:var(--button-RG-font-weight)] text-white text-[length:var(--button-RG-font-size)] tracking-[var(--button-RG-letter-spacing)] leading-[var(--button-RG-line-height)] whitespace-nowrap [font-style:var(--button-RG-font-style)]">
-            Start Free Trial
-          </div>
-        </Button>
+        <div className="flex items-center gap-3">
+          <Button
+            variant="ghost"
+            className="hidden md:block font-button-RG text-sm font-[number:var(--button-RG-font-weight)] text-neutralwhite-200 hover:text-primaryblue-violet hover:bg-white/5"
+          >
+            Sign In
+          </Button>
+
+          <Button className="bg-primaryblue-violet hover:bg-primaryblue-violet/90 rounded-full px-5 py-2 font-button-RG text-sm font-[number:var(--button-RG-font-weight)] text-white shadow-lg shadow-primaryblue-violet/50">
+            Get Started
+          </Button>
+        </div>
       </div>
     </nav>
   );
