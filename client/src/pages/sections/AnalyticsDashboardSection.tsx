@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button";
 
 export const AnalyticsDashboardSection = (): JSX.Element => {
   return (
-    <section className="flex flex-col w-full items-center px-0 py-[70px] relative">
-      <div className="flex-col gap-[60px] px-0 py-[90px] flex w-full max-w-[1224px] items-center justify-center relative">
+    <section className="flex flex-col w-full items-center px-4 md:px-0 py-12 md:py-[70px] relative">
+      <div className="flex-col gap-8 md:gap-[60px] px-4 py-12 md:py-[90px] flex w-full max-w-[1224px] items-center justify-center relative">
         <img
           className="absolute top-[calc(50.00%_-_224px)] left-[calc(50.00%_-_508px)] w-[1016px] h-[450px]"
           alt="Bg shape color"
@@ -17,27 +17,28 @@ export const AnalyticsDashboardSection = (): JSX.Element => {
           src="/figmaAssets/bg-shape-5.svg"
         />
 
-        <div className="inline-flex items-center gap-[30px] flex-[0_0_auto] flex-col relative">
-          <img
-            className="relative w-[65.38px] h-[50px]"
-            alt="Logo"
-            src="/figmaAssets/logo-1.svg"
-          />
-
-          <div className="flex flex-col w-full max-w-[485px] justify-center gap-[15px] items-center relative">
-            <h2 className="relative self-stretch mt-[-1.00px] font-heading-h4 font-[number:var(--heading-h4-font-weight)] text-neutralwhite-200 text-[length:var(--heading-h4-font-size)] text-center tracking-[var(--heading-h4-letter-spacing)] leading-[var(--heading-h4-line-height)] [font-style:var(--heading-h4-font-style)]">
-              Join the community
+        <div className="inline-flex items-center gap-6 md:gap-[30px] flex-[0_0_auto] flex-col relative z-10">
+          <div className="flex flex-col w-full max-w-[640px] justify-center gap-4 md:gap-[15px] items-center relative">
+            <h2 className="relative self-stretch mt-[-1.00px] font-heading-h4 font-[number:var(--heading-h4-font-weight)] text-neutralwhite-200 text-2xl md:text-[length:var(--heading-h4-font-size)] text-center tracking-[var(--heading-h4-letter-spacing)] leading-tight md:leading-[var(--heading-h4-line-height)] [font-style:var(--heading-h4-font-style)]">
+              Ready to revolutionize your market research?
             </h2>
 
-            <p className="relative self-stretch font-subtitle-RG font-[number:var(--subtitle-RG-font-weight)] text-neutralgray-300 text-[length:var(--subtitle-RG-font-size)] text-center tracking-[var(--subtitle-RG-letter-spacing)] leading-[var(--subtitle-RG-line-height)] [font-style:var(--subtitle-RG-font-style)]">
-              Join our 400,000+ person community and contribute to a more
-              private and decentralized internet. Start for free.
+            <p className="relative self-stretch font-subtitle-RG font-[number:var(--subtitle-RG-font-weight)] text-neutralgray-300 text-base md:text-[length:var(--subtitle-RG-font-size)] text-center tracking-[var(--subtitle-RG-letter-spacing)] leading-relaxed md:leading-[var(--subtitle-RG-line-height)] [font-style:var(--subtitle-RG-font-style)]">
+              Join thousands of businesses using Wyse Reports to make smarter decisions with AI-powered market intelligence. Start your free trial today.
             </p>
           </div>
 
-          <Button className="inline-flex gap-1.5 px-[25px] py-[15px] bg-[#5865f2] items-center justify-center relative flex-[0_0_auto] rounded-[36px] h-auto font-button-RG font-[number:var(--button-RG-font-weight)] text-white text-[length:var(--button-RG-font-size)] tracking-[var(--button-RG-letter-spacing)] leading-[var(--button-RG-line-height)] [font-style:var(--button-RG-font-style)] hover:bg-[#4752c4]">
-            Join Discord
-          </Button>
+          <div className="flex flex-col md:flex-row gap-4 items-center">
+            <Button className="w-full md:w-auto inline-flex gap-2 px-8 py-4 bg-primaryblue-violet items-center justify-center relative flex-[0_0_auto] rounded-[36px] h-auto font-button-RG font-[number:var(--button-RG-font-weight)] text-white text-[length:var(--button-RG-font-size)] tracking-[var(--button-RG-letter-spacing)] leading-[var(--button-RG-line-height)] [font-style:var(--button-RG-font-style)] hover:bg-primaryblue-violet/90">
+              Start Free Trial
+            </Button>
+            <Button 
+              variant="outline"
+              className="w-full md:w-auto inline-flex gap-2 px-8 py-4 bg-transparent border-2 border-primaryblue-violet text-primaryblue-violet items-center justify-center relative flex-[0_0_auto] rounded-[36px] h-auto font-button-RG font-[number:var(--button-RG-font-weight)] text-[length:var(--button-RG-font-size)] tracking-[var(--button-RG-letter-spacing)] leading-[var(--button-RG-line-height)] [font-style:var(--button-RG-font-style)] hover:bg-primaryblue-violet hover:text-white"
+            >
+              Schedule a Demo
+            </Button>
+          </div>
         </div>
       </div>
     </section>
